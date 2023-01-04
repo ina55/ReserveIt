@@ -8,9 +8,15 @@
   --yellow: #f6d860;
   --d-yellow: #f5d34b;
   --ready-yellow: #f3cd39;
+  --mustard: #e3b448;
+  --beige: #bdb76b;
   --green: #95cd41;
   --d-green: #81b92d;
+  --d-blue: #483d8b;
+  --royal-blue: #44a6c6;
+  --pale-yellow: #fbf8be;
   --red: #e73939;
+  --white: #ffffff;
   --separate: #ecc424;
   --d-separate: #c49e0a;
   --title: "Rubik", sans-serif;
@@ -23,7 +29,7 @@
 
 .hidden {
   display: none;
-  background: var(--l-yellow);
+  background: var(--white);
 }
 
 * {
@@ -34,7 +40,7 @@
 /* COMPONENTE APP */
 
 .app {
-  background-color: var(--l-yellow);
+  background-color: var(--white);
   height: 100vh;
   max-height: 300vh;
 }
@@ -45,7 +51,7 @@
 }
 
 .route {
-  background-color: var(--orange);
+  background-color: var(--pale-yellow);
   padding: 2rem;
   text-align: center;
   border-radius: 10px;
@@ -90,12 +96,12 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px var(--d-yellow);
+  box-shadow: inset 0 0 5px var(--mustard);
   border-radius: 10px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: var(--d-orange);
+  background: var(--pale-yellow);
   border-radius: 5px;
 }

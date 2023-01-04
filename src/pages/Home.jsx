@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes, Link } from "react-router-dom";
-import Logo from "../assets/burger-queen-logo.svg";
+import Logo from "../assets/reserveit-logo.svg";
 
 const Home = () => {
   return (

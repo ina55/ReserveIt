@@ -19,13 +19,13 @@ const Orders = () => {
     return getOrders;
   }, []);
 
-  const orderReady = orders.filter((order) => order.status === "Pendiente");
+  const orderReady = orders.filter((order) => order.status === "Pending");
   const orderPendding = orders.filter(
-    (order) => order.status === "Listo para servir"
+    (order) => order.status === "To be delivered"
   );
 
   const orderStatusHaddle = () => {
-    if (orders.status === "Pendiente") {
+    if (orders.status === "Pending") {
       return orderPendding;
     } else {
       return orderReady;
@@ -40,21 +40,21 @@ const Orders = () => {
 
   return (
     <div className={styles.ordersContainer}>
-      <h1 className={styles.ordersTitle}>Ordenes</h1>
+      <h1 className={styles.ordersTitle}>Orders</h1>
       <div className={styles.ordersMenu}>
         <button
           onClick={() => toggleTab(1)}
           className={toggleState === 1 ? styles.activeTabs : styles.tabs}
         >
           <img src={chef} alt="gorro-chef" className={styles.icons} />
-          <p className={styles.ordersMenuText}>Pendientes</p>
+          <p className={styles.ordersMenuText}>Pending</p>
         </button>
         <button
           onClick={() => toggleTab(2)}
           className={toggleState === 2 ? styles.activeTabs : styles.tabs}
         >
           <img src={waiter} alt="gorro-chef" className={styles.icons} />
-          <p className={styles.ordersMenuText}>Listas</p>
+          <p className={styles.ordersMenuText}>Ready</p>
         </button>
       </div>
       <div

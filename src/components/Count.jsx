@@ -33,7 +33,7 @@ const Count = ({ order, setOrder }) => {
 
   const handleClick = () => {
     if (value === undefined) {
-      setErrors("Ingresa Nombre del cliente");
+      setErrors("Client number error");
       return;
     } else if (tables === 0) {
       setErrors("Select a table");
@@ -79,12 +79,12 @@ const Count = ({ order, setOrder }) => {
     <div className="count-container">
       <div className="count-client">
         <label htmlFor="client" className="count-client-label">
-          Agregar Cliente
+          Your order details
         </label>
         <input
           name="client"
           className="count-input-client"
-          placeholder="Nombre del cliente"
+          placeholder="Clients number"
           id="input"
           value={value}
           onChange={(e) => {
@@ -128,17 +128,17 @@ const Count = ({ order, setOrder }) => {
           })
         ) : (
           <div className="count-noitems">
-            <p> Selecciona un producto del menú para agregarlo a la orden </p>
+            <p> Add something from the menu </p>
           </div>
         )}
       </div>
       <div className="count-total">
         <div className="count-total-info">
           <h4 className="count-errors">{errors}</h4>
-          <span>Cliente: {value} </span>
+          <span>Clients number: {value} </span>
           <span>Table: {tables <= 0 ? "" : tables} </span>
           <span>
-            Propina: $
+            Pay: $
             {
               (tip =
                 (order.reduce(
@@ -173,7 +173,7 @@ const Count = ({ order, setOrder }) => {
           }
           onClick={handleClick}
         >
-          Enviar
+          Order
         </button>
       </div>
     </div>

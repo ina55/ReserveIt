@@ -22,7 +22,7 @@ const MenuContextProvider = ({ children }) => {
       items: items,
       table: table,
       date: Timestamp.fromDate(new Date()),
-      status: "Pendiente",
+      status: "Pending",
     });
     return orders;
   };
@@ -43,7 +43,7 @@ const MenuContextProvider = ({ children }) => {
 
   const updateOrder = async (id, status) => {
     const orderDoc = doc(db, "orders", id);
-    const statusUpdate = { status: "Listo para servir" };
+    const statusUpdate = { status: "To be delivered" };
     await updateDoc(orderDoc, statusUpdate);
   };
 

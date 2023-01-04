@@ -8,19 +8,19 @@
     },
     {
       "id": 2,
-      "item": "Café con leche",
+      "item": "Café latte",
       "price": 7,
       "count": 1
     },
     {
       "id": 3,
-      "item": "Sandwich de jamón y queso",
+      "item": "Sandwich",
       "price": 10,
       "count": 1
     },
     {
       "id": 4,
-      "item": "Jugo de frutas natural",
+      "item": "Juice",
       "price": 7,
       "count": 1
     }
@@ -29,75 +29,75 @@
     [
       {
         "id": 5,
-        "item": "Hamburguesa simple",
+        "item": "Calzones",
         "price": 10,
-        "protein": "Pollo",
+        "protein": "Carbo meal",
         "count": 1
       },
       {
         "id": 6,
-        "item": "Hamburguesa simple",
+        "item": "Quesadilla",
         "price": 10,
-        "protein": "Vacuno",
+        "protein": "Carbo meal",
         "count": 1
       },
       {
         "id": 7,
-        "item": "Hamburguesa simple",
+        "item": "Quiche",
         "price": 10,
-        "protein": "Veggie",
+        "protein": "Easy meal",
         "count": 1
       },
       {
         "id": 8,
-        "item": "Hamburguesa doble",
+        "item": "Prosciutto-Wrapped Pork Tenderloin with Crispy Sage",
         "price": 15,
-        "protein": "Pollo",
+        "protein": "Protein meal",
         "count": 1
       },
       {
         "id": 9,
-        "item": "Hamburguesa doble",
+        "item": "Baked Lemon Butter Chicken Thighs",
         "price": 15,
-        "protein": "Vacuno",
+        "protein": "Carbo meal",
         "count": 1
       },
       {
         "id": 10,
-        "item": "Hamburguesa doble",
+        "item": "Crab Cakes with Remoulade Sauce",
         "price": 15,
-        "protein": "Veggie",
+        "protein": "Spicy meal",
         "count": 1
       }
     ],
     [
       {
         "id": 11,
-        "item": "Papas fritas",
+        "item": "Fresh green beans",
         "price": 5,
         "count": 1
       },
       {
         "id": 12,
-        "item": "Aros de cebolla",
+        "item": "Roasted veggies",
         "price": 5,
         "count": 1
       },
       {
         "id": 13,
-        "item": "Empanadas de queso",
+        "item": "Garden salad",
         "price": 7,
         "count": 1
       },
       {
         "id": 14,
-        "item": "Nuggets de Pollo",
+        "item": "Raw veggies with dip",
         "price": 5,
         "count": 1
       },
       {
         "id": 15,
-        "item": "Nuggets de Seitan",
+        "item": "French fries",
         "price": 5,
         "count": 1
       }
@@ -105,25 +105,25 @@
     [
       {
         "id": 16,
-        "item": "Agua 500ml",
+        "item": "Water 500ml",
         "price": 5,
         "count": 1
       },
       {
         "id": 17,
-        "item": "Agua 750ml",
+        "item": "Water 750ml",
         "price": 7,
         "count": 1
       },
       {
         "id": 18,
-        "item": "Bebida 500ml",
+        "item": "Lemonade 500ml",
         "price": 7,
         "count": 1
       },
       {
         "id": 19,
-        "item": "Bebida 750ml",
+        "item": "Lemonade 750ml",
         "price": 10,
         "count": 1
       }
