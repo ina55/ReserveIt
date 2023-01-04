@@ -12,7 +12,7 @@ const OrdersReady = ({ orders }) => {
           return (
             <div
               className={
-                order.status === "Pendiente"
+                order.status === "Pending"
                   ? styles.orderItem
                   : styles.orderItemReady
               }
@@ -27,7 +27,7 @@ const OrdersReady = ({ orders }) => {
               </button>
               <h2
                 className={
-                  order.status === "Pendiente"
+                  order.status === "Pending"
                     ? styles.orderStatus
                     : styles.orderStatusFalse
                 }
@@ -35,13 +35,13 @@ const OrdersReady = ({ orders }) => {
                 {order.status}
               </h2>
               <div className={styles.orderInfoContainer}>
-                <p className={styles.orderClientInfo}>Cliente</p>
+                <p className={styles.orderClientInfo}>Clients number</p>
                 <p className={styles.orderClientInfoValue}>{order.client}</p>
                 <h4 className={styles.orderClientInfo}>Table </h4>
                 <h4 className={styles.orderClientInfoValue}>{order.table}</h4>
               </div>
               <div className={styles.orderItemsContainer}>
-                <p className={styles.itemsTitle}>Artículos</p>
+                <p className={styles.itemsTitle}>Items</p>
                 {order.items.map((pedido, index) => {
                   return (
                     <div key={index}>
@@ -60,7 +60,7 @@ const OrdersReady = ({ orders }) => {
         })
       ) : (
         <>
-          <h2>No hay ordenes pendientes!</h2>
+          <h2>No orders pending!</h2>
         </>
       )}
     </div>

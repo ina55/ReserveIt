@@ -1,5 +1,5 @@
 .cancelbtn{
-  fill: var(--red); 
+  fill: var(--red);
   transition: .2s ease-in-out;
 }
 
@@ -9,17 +9,17 @@
 }
 
 .min-btn{
-  fill: var(--orange);
+  fill: var(--mustard);
   transition: .2s ease-in-out;
 }
 
 .others{
-  fill: var(--red); 
+  fill: var(--red);
   transition: .2s ease-in-out;
 }
 
 .min-btn:active{
-    fill: var(--d-orange);
+    fill: var(--pale-yellow);
 }
 .add-btn:active{
   fill: green;

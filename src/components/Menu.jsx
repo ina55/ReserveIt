@@ -14,7 +14,7 @@ const Menu = ({ breakfast, burgers, sideDish, drinks }) => {
   const [data, setData] = useState();
   const [order, setOrder] = useState([]);
   const [toggleState, setToggleState] = useState(1);
-  
+
   const toggleTab = (index) => {
     setToggleState(index);
   };
@@ -33,7 +33,7 @@ const Menu = ({ breakfast, burgers, sideDish, drinks }) => {
           className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
         >
           <img src={bread} className="side-menu-icon" />
-          <p className="side-menu-text">Desayuno</p>
+          <p className="side-menu-text">Snacks</p>
         </button>
         <button
           onClick={() => toggleTab(2)}
@@ -47,14 +47,14 @@ const Menu = ({ breakfast, burgers, sideDish, drinks }) => {
           className={toggleState === 3 ? "tabs active-tabs" : "tabs"}
         >
           <img src={egg} className="side-menu-icon" />
-          <p className="side-menu-text">Adicionales</p>
+          <p className="side-menu-text">Side dishes</p>
         </button>
         <button
           onClick={() => toggleTab(4)}
           className={toggleState === 4 ? "tabs active-tabs" : "tabs"}
         >
           <img src={coffe} className="side-menu-icon" />
-          <p className="side-menu-text">Bebestibles</p>
+          <p className="side-menu-text">Drinks</p>
         </button>
       </div>
 
