@@ -1,0 +1,146 @@
+{
+  "breakfast": [
+    {
+      "id": 1,
+      "item": "Café americano",
+      "price": 5,
+      "count": 1
+    },
+    {
+      "id": 2,
+      "item": "Café con leche",
+      "price": 7,
+      "count": 1
+    },
+    {
+      "id": 3,
+      "item": "Sandwich de jamón y queso",
+      "price": 10,
+      "count": 1
+    },
+    {
+      "id": 4,
+      "item": "Jugo de frutas natural",
+      "price": 7,
+      "count": 1
+    }
+  ],
+  "lunch": [
+    [
+      {
+        "id": 5,
+        "item": "Hamburguesa simple",
+        "price": 10,
+        "protein": "Pollo",
+        "count": 1
+      },
+      {
+        "id": 6,
+        "item": "Hamburguesa simple",
+        "price": 10,
+        "protein": "Vacuno",
+        "count": 1
+      },
+      {
+        "id": 7,
+        "item": "Hamburguesa simple",
+        "price": 10,
+        "protein": "Veggie",
+        "count": 1
+      },
+      {
+        "id": 8,
+        "item": "Hamburguesa doble",
+        "price": 15,
+        "protein": "Pollo",
+        "count": 1
+      },
+      {
+        "id": 9,
+        "item": "Hamburguesa doble",
+        "price": 15,
+        "protein": "Vacuno",
+        "count": 1
+      },
+      {
+        "id": 10,
+        "item": "Hamburguesa doble",
+        "price": 15,
+        "protein": "Veggie",
+        "count": 1
+      }
+    ],
+    [
+      {
+        "id": 11,
+        "item": "Papas fritas",
+        "price": 5,
+        "count": 1
+      },
+      {
+        "id": 12,
+        "item": "Aros de cebolla",
+        "price": 5,
+        "count": 1
+      },
+      {
+        "id": 13,
+        "item": "Empanadas de queso",
+        "price": 7,
+        "count": 1
+      },
+      {
+        "id": 14,
+        "item": "Nuggets de Pollo",
+        "price": 5,
+        "count": 1
+      },
+      {
+        "id": 15,
+        "item": "Nuggets de Seitan",
+        "price": 5,
+        "count": 1
+      }
+    ],
+    [
+      {
+        "id": 16,
+        "item": "Agua 500ml",
+        "price": 5,
+        "count": 1
+      },
+      {
+        "id": 17,
+        "item": "Agua 750ml",
+        "price": 7,
+        "count": 1
+      },
+      {
+        "id": 18,
+        "item": "Bebida 500ml",
+        "price": 7,
+        "count": 1
+      },
+      {
+        "id": 19,
+        "item": "Bebida 750ml",
+        "price": 10,
+        "count": 1
+      }
+    ],
+    [
+      {
+        "id": 20,
+        "item": "Huevo",
+        "price": 1,
+        "count": 1
+      },
+      {
+        "id": 21,
+        "item": "Queso",
+        "price": 1,
+        "count": 1
+      }
+    ]
+  ]
+}

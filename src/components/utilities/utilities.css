@@ -1,0 +1,44 @@
+.cancelbtn{
+  fill: var(--red); 
+  transition: .2s ease-in-out;
+}
+
+.add-btn{
+    fill: var(--d-green);
+    transition: .2s ease-in-out;
+}
+
+.min-btn{
+  fill: var(--orange);
+  transition: .2s ease-in-out;
+}
+
+.others{
+  fill: var(--red); 
+  transition: .2s ease-in-out;
+}
+
+.min-btn:active{
+    fill: var(--d-orange);
+}
+.add-btn:active{
+  fill: green;
+}
+.cancelbtn:hover{
+    fill: red;
+}
+
+.btn_{
+    width: 1.12rem;
+    height: 1.12rem;
+    margin: 0;
+    border-radius: 100%;
+}
+
+.btn{
+    width: 1.2rem;
+    height: 1.2rem;
+    margin: 0;
+    border-radius: 100%;
+}
+
