@@ -43,7 +43,6 @@ const Orders = () => {
 
   return (
     <div className={styles.ordersContainer}>
-      <h1 className={styles.ordersTitle}>Orders</h1>
       <div className={styles.ordersMenu}>
         <button
           onClick={() => toggleTab(1)}
