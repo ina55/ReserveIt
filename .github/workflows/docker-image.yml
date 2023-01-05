@@ -25,4 +25,4 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: sergiucorban/reserveit:latest
+          tags: reserveit/reserveit:latest
