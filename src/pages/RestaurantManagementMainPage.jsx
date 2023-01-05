@@ -3,13 +3,14 @@ import {AppstoreOutlined} from '@ant-design/icons';
 import {Row, Tabs} from 'antd';
 import Logo from "../assets/reserveit-logo.svg";
 import Orders from "../components/Orders";
+import TableConfiguration from "../components/TableConfiguration";
 
 const RestaurantManagementMainPage = () => {
   const items = [
     {
       label: <span><AppstoreOutlined/>Configure Tables</span>,
       key: 'configure-tables',
-      children: null
+      children: <TableConfiguration />
     },
     {
       label: <span><AppstoreOutlined/>Configure Menu</span>,
@@ -34,7 +35,7 @@ const RestaurantManagementMainPage = () => {
         <img src={Logo} alt="burger-queen" className="menu-logo"/>
       </Row>
       <Tabs
-        defaultActiveKey="active-orders"
+        defaultActiveKey="configure-tables"
         tabPosition="left"
         items={items}
       />
