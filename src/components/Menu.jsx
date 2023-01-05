@@ -4,6 +4,7 @@ import Lunch from "./Lunch";
 import SideDish from "./SideDish";
 import Drinks from "./Drinks";
 import Count from "./Count";
+import Ringbell from "./Ringbell"
 import coffe from "../assets/coffe.svg";
 import egg from "../assets/egg.svg";
 import plate from "../assets/fork-plate.svg";

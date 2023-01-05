@@ -47,6 +47,15 @@ const MenuContextProvider = ({ children }) => {
     await updateDoc(orderDoc, statusUpdate);
   };
 
+  const notifyWaiter = async (table, notificationType) => {
+    const orders = await addDoc(collection(db, "orders"), {
+      table: table,
+      date: Timestamp.fromDate(new Date()),
+      status: notificationType,
+    });
+    return orders;
+  };
+
   const [breakfast, setBreakfast] = useState([]);
   const [burgers, setBurgers] = useState([]);
   const [sideDish, setSideDish] = useState([]);
@@ -70,6 +79,7 @@ const MenuContextProvider = ({ children }) => {
         getOrders,
         deleteOrder,
         updateOrder,
+        notifyWaiter
       }}
     >
       {children}

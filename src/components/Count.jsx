@@ -3,6 +3,8 @@ import { MenuContext } from "../context/MenuContext";
 import "./Menu.css";
 import Quantity from "./Quantity";
 import CancelBtn from "./utilities/CancelBtn";
+import Ringbell from "./Ringbell";
+import Bill from "./Bill";
 
 const Count = ({ order, setOrder }) => {
   const { createOrder } = useContext(MenuContext);
@@ -39,7 +41,7 @@ const Count = ({ order, setOrder }) => {
       setErrors("Select a table");
       return;
     } else if (order.length <= 0) {
-      setErrors("Ingresa pedidos a la orden");
+      setErrors("Error");
       return;
     } else {
       createOrder(value, order, tables);
@@ -176,6 +178,8 @@ const Count = ({ order, setOrder }) => {
           Order
         </button>
       </div>
+      <Ringbell table = {tables}/>
+      <Bill table = {tables}/>
     </div>
   );
 };

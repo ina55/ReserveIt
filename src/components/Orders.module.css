@@ -39,6 +39,22 @@
   box-shadow: 10px 10px 5px -10px rgba(0, 0, 0, 0.5);
 }
 
+.notificationItem {
+  display: flex;
+  justify-content: center;
+  max-height: 20vh;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: var(--pale-red);
+  border-radius: var(--border-all);
+  padding: 1rem;
+  margin: 0.5rem auto;
+  -webkit-box-shadow: 10px 10px 5px -10px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 10px 10px 5px -10px rgba(0, 0, 0, 0.5);
+  box-shadow: 10px 10px 5px -10px rgba(0, 0, 0, 0.5);
+}
+
 .orderItemReady {
   display: flex;
   justify-content: center;
@@ -119,6 +135,20 @@
   text-align: center;
   height: 3rem;
   font-weight: bolder;
+}
+
+.notificationCheckBtn {
+  background-color: var(--red);
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: var(--border-all);
+  margin: 0.5rem auto 0.5rem auto;
+  padding: 1rem 2rem;
+  text-align: center;
+  height: 3rem;
+  font-weight: bolder;
+  /* width: 100%; */
 }
 
 .orderStatus {
