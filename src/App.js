@@ -1,8 +1,8 @@
 import "./App.css";
-import { Route, Routes, Link } from "react-router-dom";
-import Waiter from "./pages/Waiter";
-import Chef from "./pages/Chef";
-import Home from "./pages/Home";
+import {Route, Routes} from "react-router-dom";
+import RestaurantClientMainPage from "./pages/RestaurantClientMainPage";
+import RestaurantManagementMainPage from "./pages/RestaurantManagementMainPage";
+import LandingPage from "./pages/LandingPage";
 import MenuContextProvider from "./context/MenuContext";
 
 function App() {
@@ -10,9 +10,9 @@ function App() {
     <MenuContextProvider>
       <div className="app">
         <Routes>
-          <Route path="/tables" element={<Waiter />} />
-          <Route path="/kitchen" element={<Chef />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/tables" element={<RestaurantClientMainPage/>}/>
+          <Route path="/restaurant" element={<RestaurantManagementMainPage/>}/>
+          <Route path="/" element={<LandingPage/>}/>
         </Routes>
       </div>
     </MenuContextProvider>

@@ -4,12 +4,11 @@ import Menu from "../components/Menu.jsx";
 import BackBtn from "../components/utilities/BackBtn.jsx";
 import "../App.css";
 
-const Waiter = () => {
+const RestaurantClientMainPage = () => {
   const { breakfast, burgers, sideDish, drinks } = useContext(MenuContext);
 
   return (
     <div>
-      <BackBtn />
       <h1 className="title">Tables</h1>
       <Menu
         breakfast={breakfast}
@@ -21,4 +20,4 @@ const Waiter = () => {
   );
 };
 
-export default Waiter;
+export default RestaurantClientMainPage;
