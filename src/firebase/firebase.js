@@ -9,13 +9,16 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDwi9sp-AM4nUP2zp2SURBHQqO3GJCWjF0",
-  authDomain: "burger-queen-app-8f5b4.firebaseapp.com",
-  projectId: "burger-queen-app-8f5b4",
-  storageBucket: "burger-queen-app-8f5b4.appspot.com",
-  messagingSenderId: "997977086026",
-  appId: "1:997977086026:web:e139005bfae5427b356eb3",
+  apiKey: "AIzaSyDo8V0QqodXRL3y9A7k750LsOEd1m4eAQ4",
+  authDomain: "reserveit-e0907.firebaseapp.com",
+  databaseURL: "https://reserveit-e0907-default-rtdb.firebaseio.com",
+  projectId: "reserveit-e0907",
+  storageBucket: "reserveit-e0907.appspot.com",
+  messagingSenderId: "144965633398",
+  appId: "1:144965633398:web:55b830d8fbbe0ef6fbe657",
+  measurementId: "G-2XQ98NX8WT"
 };
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

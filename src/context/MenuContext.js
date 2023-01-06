@@ -1,21 +1,11 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, {createContext, useEffect, useState} from "react";
 import menu from "../data/menu.json";
-import { db } from "../firebase/firebase";
-import {
-  addDoc,
-  collection,
-  Timestamp,
-  getDocs,
-  query,
-  orderBy,
-  deleteDoc,
-  doc,
-  updateDoc,
-} from "firebase/firestore";
+import {db} from "../firebase/firebase";
+import {addDoc, collection, deleteDoc, doc, getDocs, orderBy, query, where, Timestamp, updateDoc,} from "firebase/firestore";
 
 export const MenuContext = createContext();
 
-const MenuContextProvider = ({ children }) => {
+const MenuContextProvider = ({children}) => {
   const createOrder = async (client, items, table) => {
     const orders = await addDoc(collection(db, "orders"), {
       client: client,
@@ -27,6 +17,11 @@ const MenuContextProvider = ({ children }) => {
     return orders;
   };
 
+  const addTableConfiguration = async (table) => {
+    const tables = await addDoc(collection(db, "tables"), table);
+    return tables;
+  };
+
   const getOrders = async () => {
     const querySnapshot = await getDocs(
       query(collection(db, "orders")),
@@ -34,16 +29,36 @@ const MenuContextProvider = ({ children }) => {
     );
     const arr = [];
     querySnapshot.forEach((order) =>
-      arr.push(Object.assign(order.data(), { id: order.id }))
+      arr.push(Object.assign(order.data(), {id: order.id}))
     );
+    return arr;
+  };
+
+  const getTableConfiguration = async (restaurantId) => {
+    const tableRef = collection(db, "tables");
+    const q = query(tableRef, where("restaurant", "==", restaurantId));
+    const querySnapshot = await getDocs(q);
+    const arr = [];
+    querySnapshot.forEach((doc) => {
+        arr.push(doc.data());
+    });
     return arr;
   };
 
   const deleteOrder = (id) => deleteDoc(doc(db, "orders", id));
 
+  const deleteTableConfiguration = async (restaurantId) => {
+    const tableRef = collection(db, "tables");
+    const q = query(tableRef, where("restaurant", "==", restaurantId));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      deleteDoc(doc.ref);
+    });
+  }
+
   const updateOrder = async (id, status) => {
     const orderDoc = doc(db, "orders", id);
-    const statusUpdate = { status: "To be delivered" };
+    const statusUpdate = {status: "To be delivered"};
     await updateDoc(orderDoc, statusUpdate);
   };
 
@@ -79,7 +94,10 @@ const MenuContextProvider = ({ children }) => {
         getOrders,
         deleteOrder,
         updateOrder,
-        notifyWaiter
+        notifyWaiter,
+        addTableConfiguration,
+        getTableConfiguration,
+        deleteTableConfiguration
       }}
     >
       {children}
