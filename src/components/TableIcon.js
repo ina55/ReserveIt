@@ -27,10 +27,13 @@ const TableIcon = (props) => {
     );
   } else {
     return (
-      <div style={{position: 'absolute', left: props.x, top: props.y}}>
+      <button style={{position: 'absolute', left: props.x, top: props.y}}
+              className="table-button"
+              onClick={() => props.accessTable(props.index)}
+      >
         <img src={imgSrc} height={100} width={100}/>
         <span style={{display: 'flex', justifyContent: 'center'}}>{props.index}</span>
-      </div>
+      </button>
     );
   }
 };

@@ -293,3 +293,19 @@ h2 {
   border-radius: 100%;
   margin: 0px;
 }
+
+.center-div-row {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+}
+
+.table-button {
+  border: none;
+  background-color: transparent;
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+}
