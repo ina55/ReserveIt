@@ -14,8 +14,8 @@ const TableIcon = (props) => {
         disabled={props.isDisabled}
         onStop={(e) => {
           const el = document.getElementById('drop-container').getBoundingClientRect();
-          const x = e.x - el.x;
-          const y = e.y - el.y;
+          const x = e.x - el.x + 45;
+          const y = e.y - el.y - 45;
           props.updateCoordinates(props.index, x, y);
         }}
       >

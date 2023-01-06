@@ -17,11 +17,8 @@ const MenuContextProvider = ({children}) => {
     return orders;
   };
 
-  const addTableConfiguration = async (restaurantId, tableConfiguration) => {
-    const tables = await addDoc(collection(db, "tables"), {
-      restaurant: restaurantId,
-      tableConfiguration: tableConfiguration
-    });
+  const addTableConfiguration = async (table) => {
+    const tables = await addDoc(collection(db, "tables"), table);
     return tables;
   };
 
