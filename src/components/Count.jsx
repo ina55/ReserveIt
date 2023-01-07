@@ -5,6 +5,7 @@ import Quantity from "./Quantity";
 import CancelBtn from "./utilities/CancelBtn";
 import Ringbell from "./Ringbell";
 import Bill from "./Bill";
+import History from "./History";
 
 const Count = ({ order, setOrder }) => {
   const { createOrder } = useContext(MenuContext);
@@ -12,6 +13,7 @@ const Count = ({ order, setOrder }) => {
   const [isToggleOn, setIsToggleOn] = useState(true);
   const [tables, setTables] = useState(0);
   const [errors, setErrors] = useState("");
+  const [history, setHistory] = useState([]);
 
   let subtotal;
   let tip;
@@ -29,7 +31,7 @@ const Count = ({ order, setOrder }) => {
     setOrder(removedItem);
   };
 
-  const handdleInput = (e) => {
+  const handleInput = (e) => {
     setValue(e.target.value);
   };
 
@@ -47,6 +49,9 @@ const Count = ({ order, setOrder }) => {
       createOrder(value, order, tables);
     }
     setErrors("");
+    setHistory(history.concat(order));
+    console.log(order);
+    console.log(history);
     setOrder([]);
     setValue("");
     setTables(0);
@@ -90,7 +95,7 @@ const Count = ({ order, setOrder }) => {
           id="input"
           value={value}
           onChange={(e) => {
-            handdleInput(e);
+            handleInput(e);
           }}
         />
         <select
@@ -102,6 +107,7 @@ const Count = ({ order, setOrder }) => {
           ))}
         </select>
       </div>
+      <History order={history}/>
       <div className="count-order">
         {order.length > 0 ? (
           order.map((item, index) => {

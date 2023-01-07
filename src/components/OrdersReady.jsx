@@ -4,7 +4,7 @@ import { MenuContext } from "../context/MenuContext";
 import CancelBtn from "./utilities/CancelBtn";
 
 const OrdersReady = ({ orders }) => {
-  const { deleteOrder } = useContext(MenuContext);
+  const { deleteOrder, markOrderAsDelivered } = useContext(MenuContext);
   return (
     <div className={styles.orderContainer}>
       {orders.length > 0 ? (
@@ -21,7 +21,7 @@ const OrdersReady = ({ orders }) => {
               <button
                 className={styles.orderRemoveBtn}
                 value={order.id}
-                onClick={() => deleteOrder(order.id)}
+                onClick={() => {deleteOrder(order.id); markOrderAsDelivered(order.id);}}
               >
                 <CancelBtn />
               </button>

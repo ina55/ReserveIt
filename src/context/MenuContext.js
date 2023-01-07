@@ -71,6 +71,12 @@ const MenuContextProvider = ({children}) => {
     return orders;
   };
 
+  const markOrderAsDelivered = async (orderId) => {
+    await deleteOrder(orderId);
+
+    return getOrders();
+  };
+
   const [breakfast, setBreakfast] = useState([]);
   const [burgers, setBurgers] = useState([]);
   const [sideDish, setSideDish] = useState([]);
@@ -97,7 +103,8 @@ const MenuContextProvider = ({children}) => {
         notifyWaiter,
         addTableConfiguration,
         getTableConfiguration,
-        deleteTableConfiguration
+        deleteTableConfiguration,
+        markOrderAsDelivered
       }}
     >
       {children}
