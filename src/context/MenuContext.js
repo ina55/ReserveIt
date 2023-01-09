@@ -1,12 +1,13 @@
 import React, {createContext, useEffect, useState} from "react";
 import menu from "../data/menu.json";
 import {db} from "../firebase/firebase";
-import {addDoc, collection, deleteDoc, doc, getDocs, orderBy, query, where, Timestamp, updateDoc,} from "firebase/firestore";
+import {getDoc, addDoc, collection, deleteDoc, doc, getDocs, orderBy, query, where, Timestamp, updateDoc,} from "firebase/firestore";
 
 export const MenuContext = createContext();
 
 const MenuContextProvider = ({children}) => {
   const createOrder = async (client, items, table) => {
+    items.forEach(item => item.status = "Pending");
     const orders = await addDoc(collection(db, "orders"), {
       client: client,
       items: items,
@@ -58,7 +59,10 @@ const MenuContextProvider = ({children}) => {
 
   const updateOrder = async (id, status) => {
     const orderDoc = doc(db, "orders", id);
-    const statusUpdate = {status: "To be delivered"};
+    const docsnap = await getDoc(orderDoc)
+    const items = docsnap.data().items
+    items.forEach(item => item.status = "To be delivered")
+    const statusUpdate = {items: items, status: "To be delivered"};
     await updateDoc(orderDoc, statusUpdate);
   };
 
@@ -71,10 +75,13 @@ const MenuContextProvider = ({children}) => {
     return orders;
   };
 
-  const markOrderAsDelivered = async (orderId) => {
-    await deleteOrder(orderId);
-
-    return getOrders();
+  const markOrderAsDelivered = async (orderId, itemId) => {
+    const orderDoc = doc(db, "orders", orderId);
+    const docsnap = await getDoc(orderDoc)
+    const items = docsnap.data().items
+    items.filter(item => item.id === itemId).forEach(item => item.status = "Delivered")
+    const statusUpdate = {items: items};
+    await updateDoc(orderDoc, statusUpdate);
   };
 
   const [breakfast, setBreakfast] = useState([]);

@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import styles from "./Orders.module.css";
 import { MenuContext } from "../context/MenuContext";
 import CancelBtn from "./utilities/CancelBtn";
+import {Checkbox} from "antd";
 
 const OrdersReady = ({ orders }) => {
   const { deleteOrder, markOrderAsDelivered } = useContext(MenuContext);
@@ -21,7 +22,7 @@ const OrdersReady = ({ orders }) => {
               <button
                 className={styles.orderRemoveBtn}
                 value={order.id}
-                onClick={() => {deleteOrder(order.id); markOrderAsDelivered(order.id);}}
+                onClick={() => deleteOrder(order.id)}
               >
                 <CancelBtn />
               </button>
@@ -48,7 +49,8 @@ const OrdersReady = ({ orders }) => {
                       <div className={styles.orderItemsName}>
                         <p>{pedido.count}</p>
                         <p>{pedido.item}</p>
-                        <p>{pedido.protein}</p>
+                        {/*<p>{pedido.protein}</p>*/}
+                        <Checkbox onChange={() => {console.log (pedido.id + " " + order.id);markOrderAsDelivered(order.id, pedido.id)}}/>
                       </div>
                       <hr className={styles.separate} />
                     </div>

@@ -10,7 +10,7 @@ const History = ({ order, setOrder }) => {
         <div className="count-item" id={index}>
           <h3 className="count-item-info info">{item.item}</h3>
           <h3 className="count-item-info info">{item.protein}</h3>
-          <Checkbox disabled checked/>
+          <Checkbox disabled checked={item.status === "Delivered"}/>
         </div>
       );
     })}
