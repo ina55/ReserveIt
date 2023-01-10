@@ -1,11 +1,11 @@
 import React from "react";
 import "./Menu.css";
 
-const Breakfast = ({ breakfast, getItem, data }) => {
+const Breakfast = ({ principal, getItem, data }) => {
   return (
     <div className="item-container">
       <h1>{data}</h1>
-      {breakfast.map((item) => {
+      {principal.map((item) => {
         return (
           <button
             key={item.id}
