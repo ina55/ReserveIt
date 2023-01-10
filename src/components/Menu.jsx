@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import Breakfast from "./Breakfast";
-import Lunch from "./Lunch";
+import Snacks from "./Snacks";
+import Principal from "./Principal";
 import SideDish from "./SideDish";
 import Drinks from "./Drinks";
 import Count from "./Count";
@@ -10,8 +10,9 @@ import egg from "../assets/egg.svg";
 import plate from "../assets/fork-plate.svg";
 import bread from "../assets/bread.svg";
 import "./Menu.css";
+import snacks from "./Snacks";
 
-const Menu = ({ breakfast, burgers, sideDish, drinks }) => {
+const Menu = ({ snacks, principal, sideDish, drinks }) => {
   const [data, setData] = useState();
   const [order, setOrder] = useState([]);
   const [toggleState, setToggleState] = useState(1);
@@ -62,12 +63,12 @@ const Menu = ({ breakfast, burgers, sideDish, drinks }) => {
       <div
         className={toggleState === 1 ? "content  active-content" : "content"}
       >
-        <Breakfast breakfast={breakfast} getItem={getItem} data={data} />
+        <Snacks snacks={snacks} getItem={getItem} data={data} />
       </div>
       <div
         className={toggleState === 2 ? "content  active-content" : "content"}
       >
-        <Lunch burgers={burgers} getItem={getItem} />
+        <Principal principal={principal} getItem={getItem} />
       </div>
       <div
         className={toggleState === 3 ? "content  active-content" : "content"}

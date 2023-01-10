@@ -1,11 +1,10 @@
 import React from "react";
 import "./Menu.css";
 
-const Breakfast = ({ breakfast, getItem, data }) => {
+const Principal = ({ principal, getItem }) => {
   return (
     <div className="item-container">
-      <h1>{data}</h1>
-      {breakfast.map((item) => {
+      {principal.map((item) => {
         return (
           <button
             key={item.id}
@@ -13,9 +12,9 @@ const Breakfast = ({ breakfast, getItem, data }) => {
             onClick={() => {
               getItem(item);
             }}
-            value={item.item}
           >
             <h2>{item.item}</h2>
+            <h3>{item.protein}</h3>
             <h1>{`${item.price} $`}</h1>
           </button>
         );
@@ -24,4 +23,4 @@ const Breakfast = ({ breakfast, getItem, data }) => {
   );
 };
 
-export default Breakfast;
+export default Principal;

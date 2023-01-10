@@ -1,10 +1,11 @@
 import React from "react";
 import "./Menu.css";
 
-const Lunch = ({ burgers, getItem }) => {
+const Snacks = ({ snacks, getItem, data }) => {
   return (
     <div className="item-container">
-      {burgers.map((item) => {
+      <h1>{data}</h1>
+      {snacks.map((item) => {
         return (
           <button
             key={item.id}
@@ -12,9 +13,9 @@ const Lunch = ({ burgers, getItem }) => {
             onClick={() => {
               getItem(item);
             }}
+            value={item.item}
           >
             <h2>{item.item}</h2>
-            <h3>{item.protein}</h3>
             <h1>{`${item.price} $`}</h1>
           </button>
         );
@@ -23,4 +24,4 @@ const Lunch = ({ burgers, getItem }) => {
   );
 };
 
-export default Lunch;
+export default Snacks;
