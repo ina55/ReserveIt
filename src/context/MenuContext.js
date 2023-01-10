@@ -35,6 +35,17 @@ const MenuContextProvider = ({children}) => {
     return arr;
   };
 
+  const getOrdersForHistory = async (table) => {
+    const tableRef = collection(db, "orders");
+    const q = query(tableRef, where("table", "==", table));
+    const querySnapshot = await getDocs(q);
+    const arr = [];
+    querySnapshot.forEach((doc) => {
+      arr.push(doc.data());
+    });
+    return arr;
+  };
+
   const getTableConfiguration = async (restaurantId) => {
     const tableRef = collection(db, "tables");
     const q = query(tableRef, where("restaurant", "==", restaurantId));
@@ -111,7 +122,8 @@ const MenuContextProvider = ({children}) => {
         addTableConfiguration,
         getTableConfiguration,
         deleteTableConfiguration,
-        markOrderAsDelivered
+        markOrderAsDelivered,
+        getOrdersForHistory
       }}
     >
       {children}

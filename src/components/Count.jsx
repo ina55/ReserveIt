@@ -49,12 +49,10 @@ const Count = ({ order, setOrder }) => {
       createOrder(value, order, tables);
     }
     setErrors("");
-    setHistory(history.concat(order));
-    console.log(order);
-    console.log(history);
     setOrder([]);
-    setValue("");
-    setTables(0);
+    setHistory(!history)
+    // setValue("");
+    // setTables(0);
   };
 
   const addItemQty = (id) => {
@@ -107,7 +105,7 @@ const Count = ({ order, setOrder }) => {
           ))}
         </select>
       </div>
-      <History order={history}/>
+      <History table={tables} tick={history}/>
       <div className="count-order">
         {order.length > 0 ? (
           order.map((item, index) => {

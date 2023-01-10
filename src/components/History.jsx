@@ -1,11 +1,25 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {Checkbox} from "antd";
+import {MenuContext} from "../context/MenuContext";
 
-const History = ({ order, setOrder }) => {
+const History = ({ table, tick }) => {
+
+  const { getOrdersForHistory } = useContext(MenuContext);
+
+
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    getOrdersForHistory(table).then((orders) => {
+      let arr = [];
+      orders.forEach(order => arr = arr.concat(order.items))
+      setItems(arr)
+    });
+  }, [table, tick]);
 
   return (
     <div className="history-items">
-      {order.map((item, index) => {
+      {items.map((item, index) => {
       return (
         <div className="count-item" id={index}>
           <h3 className="count-item-info info">{item.item}</h3>

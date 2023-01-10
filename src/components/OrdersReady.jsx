@@ -50,7 +50,7 @@ const OrdersReady = ({ orders }) => {
                         <p>{pedido.count}</p>
                         <p>{pedido.item}</p>
                         {/*<p>{pedido.protein}</p>*/}
-                        <Checkbox onChange={() => {console.log (pedido.id + " " + order.id);markOrderAsDelivered(order.id, pedido.id)}}/>
+                        <Checkbox checked={pedido.status === "Delivered"} onChange={() => markOrderAsDelivered(order.id, pedido.id)}/>
                       </div>
                       <hr className={styles.separate} />
                     </div>
