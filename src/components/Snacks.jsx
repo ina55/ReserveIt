@@ -1,11 +1,11 @@
 import React from "react";
 import "./Menu.css";
 
-const Breakfast = ({ principal, getItem, data }) => {
+const Snacks = ({ snacks, getItem, data }) => {
   return (
     <div className="item-container">
       <h1>{data}</h1>
-      {principal.map((item) => {
+      {snacks.map((item) => {
         return (
           <button
             key={item.id}
@@ -24,4 +24,4 @@ const Breakfast = ({ principal, getItem, data }) => {
   );
 };
 
-export default Breakfast;
+export default Snacks;

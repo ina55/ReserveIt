@@ -1,7 +1,18 @@
 import React, {createContext, useEffect, useState} from "react";
 import menu from "../data/menu.json";
 import {db} from "../firebase/firebase";
-import {addDoc, collection, deleteDoc, doc, getDocs, orderBy, query, where, Timestamp, updateDoc,} from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  deleteDoc,
+  doc,
+  getDocs,
+  orderBy,
+  query,
+  Timestamp,
+  updateDoc,
+  where,
+} from "firebase/firestore";
 
 export const MenuContext = createContext();
 
@@ -38,6 +49,7 @@ const MenuContextProvider = ({children}) => {
     const tableRef = collection(db, "tables");
     const q = query(tableRef, where("restaurant", "==", restaurantId));
     const querySnapshot = await getDocs(q);
+
     const arr = [];
     querySnapshot.forEach((doc) => {
         arr.push(doc.data());
@@ -71,23 +83,79 @@ const MenuContextProvider = ({children}) => {
     return orders;
   };
 
-  const [breakfast, setBreakfast] = useState([]);
-  const [burgers, setBurgers] = useState([]);
+  const addFood = async (item) => {
+    return await addDoc(collection(db, "menu"), item);
+  }
+
+  const getFoodItem = async (itemId) => {
+    const menuRef = collection(db, "menu");
+    const q = query(menuRef, where("id", "==", itemId));
+    const querySnapshot = await getDocs(q);
+    const arr = [];
+    querySnapshot.forEach((doc) => {
+      arr.push(doc.data());
+    });
+    return arr;
+  };
+
+  const getFood = async () => {
+    const querySnapshot = await getDocs(query(collection(db, "menu")));
+    const arr = [];
+
+    querySnapshot.forEach((doc) => {
+      arr.push(doc.data());
+    });
+
+    return arr;
+  };
+
+  const getFoodByCategory = async (category) => {
+    const querySnapshot = await getDocs(query(collection(db, "menu"), where("category", "==", category)));
+    const arr = [];
+
+    querySnapshot.forEach((doc) => {
+      arr.push(doc.data());
+    });
+
+    return arr;
+  };
+
+  const deleteFood = async (itemId) => {
+    const menuRef = collection(db, "menu");
+    const q = query(menuRef, where("id", "==", itemId));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      deleteDoc(doc.ref);
+    });
+  }
+
+  //const [breakfast, setBreakfast] = useState([]);
+  //const [burgers, setBurgers] = useState([]);
+  //const [sideDish, setSideDish] = useState([]);
+  //const [drinks, setDrinks] = useState([]);
+
+  const [snacks, setSnacks] = useState([]);
+  const [principal, setPrincipal] = useState([]);
   const [sideDish, setSideDish] = useState([]);
   const [drinks, setDrinks] = useState([]);
 
   useEffect(() => {
-    setBreakfast(menu.breakfast);
-    setBurgers(menu.lunch[0]);
-    setSideDish(menu.lunch[1]);
-    setDrinks(menu.lunch[2]);
+    getFoodByCategory("snacks").then((arr) => {setSnacks(arr);});
+    getFoodByCategory("principal").then((arr) => {setPrincipal(arr);});
+    getFoodByCategory("side dish").then((arr) => {setSideDish(arr);});
+    getFoodByCategory("drinks").then((arr) => {setDrinks(arr);});
+
+    //setBreakfast(menu.breakfast);
+    //setBurgers(menu.lunch[0]);
+    //setSideDish(menu.lunch[1]);
+    //setDrinks(menu.lunch[2]);
   }, []);
 
   return (
     <MenuContext.Provider
       value={{
-        breakfast,
-        burgers,
+        snacks,
+        principal,
         sideDish,
         drinks,
         createOrder,
@@ -97,7 +165,12 @@ const MenuContextProvider = ({children}) => {
         notifyWaiter,
         addTableConfiguration,
         getTableConfiguration,
-        deleteTableConfiguration
+        deleteTableConfiguration,
+        addFood,
+        deleteFood,
+        getFoodItem,
+        getFood,
+        getFoodByCategory
       }}
     >
       {children}

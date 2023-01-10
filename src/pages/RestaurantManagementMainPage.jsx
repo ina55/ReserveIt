@@ -8,20 +8,37 @@ import {MenuContext} from "../context/MenuContext";
 import {GENERIC_RESTAURANT_ID} from "../Constants";
 import TablePlan from "../components/TablePlan";
 import TablePage from "../components/TablePage";
+import MenuConfiguration from "../components/MenuConfiguration";
 
 const RestaurantManagementMainPage = () => {
   const [tablesData, setTablesData] = useState([]);
+  const [foodData, setFoodData] = useState([]);
   const [activeKey, setActiveKey] = useState('table-plan');
   const [tableInfoData, setTableInfoData] = useState({});
-  const {addTableConfiguration, deleteTableConfiguration, getTableConfiguration} = useContext(MenuContext);
+  const {addTableConfiguration, deleteTableConfiguration, getTableConfiguration, addFood, deleteFood, getFoodItem, getFood} = useContext(MenuContext);
 
   useEffect(() => {
+    //get food data from db
+    getFood().then((arr) => {setFoodData(arr);});
+
     //get tables data from db
     getTableConfiguration(GENERIC_RESTAURANT_ID).then((arr) => {
       arr = arr.sort((a, b) => a.tableConfiguration.index - b.tableConfiguration.index);
       setTablesData(arr);
     });
   }, []);
+
+  const saveItem = (item, items) => {
+    //items.filter(function(item) {return getFoodItem(item).isEmpty()}).map((item) => addFood(item));
+    //items.map((item) => addFood(item));
+    addFood(item);
+    setFoodData(items);
+  }
+
+  const deleteItem = (items, itemId) => {
+    items.filter((item) => deleteFood(itemId));
+    setFoodData(items);
+  }
 
   //update tables info in db
   const saveTablesConfiguration = (newTableConfiguration) => {
@@ -53,7 +70,10 @@ const RestaurantManagementMainPage = () => {
     {
       label: <span><AppstoreOutlined/>Configure Menu</span>,
       key: 'configure-menu',
-      children: null
+      children: <MenuConfiguration
+        foodData={foodData}
+        saveItem={saveItem}
+        deleteItem={deleteItem}/>
     },
     {
       label: <span><AppstoreOutlined/>Table Plan</span>,

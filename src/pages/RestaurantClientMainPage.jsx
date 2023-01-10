@@ -5,14 +5,14 @@ import BackBtn from "../components/utilities/BackBtn.jsx";
 import "../App.css";
 
 const RestaurantClientMainPage = () => {
-  const { breakfast, burgers, sideDish, drinks } = useContext(MenuContext);
+  const { snacks, principal, sideDish, drinks } = useContext(MenuContext);
 
   return (
     <div>
       <h1 className="title">Tables</h1>
       <Menu
-        breakfast={breakfast}
-        burgers={burgers}
+        snacks={snacks}
+        principal={principal}
         sideDish={sideDish}
         drinks={drinks}
       />
