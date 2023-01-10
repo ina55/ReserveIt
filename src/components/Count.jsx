@@ -11,18 +11,25 @@ const Count = ({ order, setOrder }) => {
   const { createOrder } = useContext(MenuContext);
   const [value, setValue] = useState();
   const [isToggleOn, setIsToggleOn] = useState(true);
-  const [tables, setTables] = useState(0);
+  const [tables, setTables] = useState(getRandomInt(1, 4));
   const [errors, setErrors] = useState("");
   const [history, setHistory] = useState([]);
 
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+  }
   let subtotal;
   let tip;
-  const tableArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  const tableArray = [1, 2, 3, 4];
+
 
   let orderDuplicates = new Set(order.map(JSON.stringify));
   order = Array.from(orderDuplicates).map(JSON.parse);
 
   const tablesSet = (table) => {
+    console.log(table)
     setTables(table);
   };
 
@@ -35,6 +42,9 @@ const Count = ({ order, setOrder }) => {
     setValue(e.target.value);
   };
 
+  const handdletable = (p) => {
+  tablesSet(p.target.value)
+  };
   const handleClick = () => {
     if (value === undefined) {
       setErrors("Client number error");
@@ -96,14 +106,22 @@ const Count = ({ order, setOrder }) => {
             handleInput(e);
           }}
         />
-        <select
-          className="count-table"
-          onChange={(e) => tablesSet(e.target.value)}
-        >
-          {tableArray.map((table) => (
-            <option>{table}</option>
-          ))}
-        </select>
+
+        {/*<select*/}
+
+        {/*  className="count-table"*/}
+        {/*  onChange={(e) => tablesSet(e.target.value)}*/}
+
+        {/*>*/}
+        <input
+          name="tableNumber"
+          className="table"
+          placeholder=" number"
+          id="tableSet"
+          disabled
+          value ={tables}
+        />
+
       </div>
       <History table={tables} tick={history}/>
       <div className="count-order">
