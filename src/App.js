@@ -4,7 +4,10 @@ import RestaurantClientMainPage from "./pages/RestaurantClientMainPage";
 import RestaurantManagementMainPage from "./pages/RestaurantManagementMainPage";
 import LandingPage from "./pages/LandingPage";
 import MenuContextProvider from "./context/MenuContext";
+import ReactGA from 'react-ga';
 
+const TRACKING_ID = "UA-253704276-1";
+ReactGA.initialize(TRACKING_ID);
 function App() {
   return (
     <MenuContextProvider>

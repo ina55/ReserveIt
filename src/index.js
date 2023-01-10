@@ -4,10 +4,7 @@ import './index.css';
 import App from './App';
 import "./firebase/firebase.js"
 import { BrowserRouter } from 'react-router-dom';
-import ReactGA from 'react-ga';
 
-const TRACKING_ID = "G-EKPFP5PM9N";
-ReactGA.initialize(TRACKING_ID);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
