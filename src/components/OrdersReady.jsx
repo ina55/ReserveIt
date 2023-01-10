@@ -2,9 +2,10 @@ import React, { useContext } from "react";
 import styles from "./Orders.module.css";
 import { MenuContext } from "../context/MenuContext";
 import CancelBtn from "./utilities/CancelBtn";
+import {Checkbox} from "antd";
 
 const OrdersReady = ({ orders }) => {
-  const { deleteOrder } = useContext(MenuContext);
+  const { deleteOrder, markOrderAsDelivered } = useContext(MenuContext);
   return (
     <div className={styles.orderContainer}>
       {orders.length > 0 ? (
@@ -48,7 +49,8 @@ const OrdersReady = ({ orders }) => {
                       <div className={styles.orderItemsName}>
                         <p>{pedido.count}</p>
                         <p>{pedido.item}</p>
-                        <p>{pedido.protein}</p>
+                        {/*<p>{pedido.protein}</p>*/}
+                        <Checkbox checked={pedido.status === "Delivered"} onChange={() => markOrderAsDelivered(order.id, pedido.id)}/>
                       </div>
                       <hr className={styles.separate} />
                     </div>

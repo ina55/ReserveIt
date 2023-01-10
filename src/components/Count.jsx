@@ -5,6 +5,7 @@ import Quantity from "./Quantity";
 import CancelBtn from "./utilities/CancelBtn";
 import Ringbell from "./Ringbell";
 import Bill from "./Bill";
+import History from "./History";
 
 const Count = ({ order, setOrder }) => {
   const { createOrder } = useContext(MenuContext);
@@ -12,6 +13,7 @@ const Count = ({ order, setOrder }) => {
   const [isToggleOn, setIsToggleOn] = useState(true);
   const [tables, setTables] = useState(getRandomInt(1, 4));
   const [errors, setErrors] = useState("");
+  const [history, setHistory] = useState([]);
 
   function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -36,7 +38,7 @@ const Count = ({ order, setOrder }) => {
     setOrder(removedItem);
   };
 
-  const handdleInput = (e) => {
+  const handleInput = (e) => {
     setValue(e.target.value);
   };
 
@@ -58,7 +60,8 @@ const Count = ({ order, setOrder }) => {
     }
     setErrors("");
     setOrder([]);
-    setValue("");
+    setHistory(!history)
+    // setValue("");
     // setTables(0);
   };
 
@@ -100,7 +103,7 @@ const Count = ({ order, setOrder }) => {
           id="input"
           value={value}
           onChange={(e) => {
-            handdleInput(e);
+            handleInput(e);
           }}
         />
 
@@ -120,6 +123,7 @@ const Count = ({ order, setOrder }) => {
         />
 
       </div>
+      <History table={tables} tick={history}/>
       <div className="count-order">
         {order.length > 0 ? (
           order.map((item, index) => {
