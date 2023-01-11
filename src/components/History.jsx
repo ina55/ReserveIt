@@ -11,6 +11,7 @@ const History = ({ table, tick }) => {
   useEffect(() => {
     getOrdersForHistory(table).then((orders) => {
       let arr = [];
+      console.log(arr);
       orders.forEach(order => arr = arr.concat(order.items))
       setItems(arr)
     });

@@ -37,12 +37,13 @@ const MenuContextProvider = ({children}) => {
 
   const getOrdersForHistory = async (table) => {
     const tableRef = collection(db, "orders");
-    const q = query(tableRef, where("table", "==", table));
+    const q = query(tableRef, where("table", "==", table.toString()));
     const querySnapshot = await getDocs(q);
     const arr = [];
     querySnapshot.forEach((doc) => {
       arr.push(doc.data());
     });
+    console.log(arr);
     return arr;
   };
 

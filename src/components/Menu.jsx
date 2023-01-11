@@ -12,7 +12,7 @@ import bread from "../assets/bread.svg";
 import "./Menu.css";
 import snacks from "./Snacks";
 
-const Menu = ({ snacks, principal, sideDish, drinks }) => {
+const Menu = ({ snacks, principal, sideDish, drinks, tableId }) => {
   const [data, setData] = useState();
   const [order, setOrder] = useState([]);
   const [toggleState, setToggleState] = useState(1);
@@ -80,7 +80,7 @@ const Menu = ({ snacks, principal, sideDish, drinks }) => {
       >
         <Drinks drinks={drinks} getItem={getItem} />
       </div>
-      <Count order={order} setOrder={setOrder} />
+      <Count order={order} setOrder={setOrder} tableId={tableId}/>
     </div>
   );
 };

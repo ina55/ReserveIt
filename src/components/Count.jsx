@@ -7,31 +7,32 @@ import Ringbell from "./Ringbell";
 import Bill from "./Bill";
 import History from "./History";
 
-const Count = ({ order, setOrder }) => {
+const Count = ({ order, setOrder, tableId }) => {
   const { createOrder } = useContext(MenuContext);
   const [value, setValue] = useState();
   const [isToggleOn, setIsToggleOn] = useState(true);
-  const [tables, setTables] = useState(getRandomInt(1, 4));
+  // const [tables, setTables] = useState(getRandomInt(1, 4));
+  const tables = tableId;
   const [errors, setErrors] = useState("");
   const [history, setHistory] = useState([]);
 
-  function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
-  }
+  // function getRandomInt(min, max) {
+  //   min = Math.ceil(min);
+  //   max = Math.floor(max);
+  //   return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+  // }
   let subtotal;
   let tip;
-  const tableArray = [1, 2, 3, 4];
+  // const tableArray = [1, 2, 3, 4];
 
 
   let orderDuplicates = new Set(order.map(JSON.stringify));
   order = Array.from(orderDuplicates).map(JSON.parse);
 
-  const tablesSet = (table) => {
-    console.log(table)
-    setTables(table);
-  };
+  // const tablesSet = (table) => {
+  //   console.log(table)
+  //   setTables(table);
+  // };
 
   const removeItem = (id) => {
     const removedItem = order.filter((remove, i) => i !== id);
@@ -42,9 +43,9 @@ const Count = ({ order, setOrder }) => {
     setValue(e.target.value);
   };
 
-  const handdletable = (p) => {
-  tablesSet(p.target.value)
-  };
+  // const handdletable = (p) => {
+  // tablesSet(p.target.value)
+  // };
   const handleClick = () => {
     if (value === undefined) {
       setErrors("Client number error");

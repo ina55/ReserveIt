@@ -10,7 +10,7 @@ import TablePlan from "../components/TablePlan";
 import TablePage from "../components/TablePage";
 import MenuConfiguration from "../components/MenuConfiguration";
 
-const RestaurantManagementMainPage = () => {
+const RestaurantManagementMainPage = (props) => {
   const [tablesData, setTablesData] = useState([]);
   const [foodData, setFoodData] = useState([]);
   const [activeKey, setActiveKey] = useState('table-plan');
@@ -46,6 +46,7 @@ const RestaurantManagementMainPage = () => {
       addTableConfiguration(el);
     });
     setTablesData(newTableConfiguration);
+    props.updateMaxTableNumber(newTableConfiguration.length);
   };
   const deleteTablesConfiguration = () => {
     deleteTableConfiguration(GENERIC_RESTAURANT_ID);
