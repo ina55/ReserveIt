@@ -28,6 +28,7 @@ const RegistrationForm = () => {
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
       autoComplete="off"
+      style={{ display: "block" }}
     >
       <Form.Item
         label="Username"
