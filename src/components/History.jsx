@@ -8,7 +8,6 @@ const History = ({ table, tick }) => {
 
 
   const [items, setItems] = useState([]);
-
   useEffect(() => {
     getOrdersForHistory(table).then((orders) => {
       let arr = [];
