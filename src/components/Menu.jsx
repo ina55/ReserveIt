@@ -23,7 +23,7 @@ const Menu = ({ snacks, principal, sideDish, drinks, tableId }) => {
 
   const getItem = (item) => {
     setOrder((currentOrder) => {
-      return [...currentOrder, item];
+      return [...currentOrder, {...item, count: 1}];
     });
   };
 
