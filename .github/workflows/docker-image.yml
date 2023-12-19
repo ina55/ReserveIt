@@ -21,7 +21,7 @@ jobs:
       with:
         registry: https://upbimages.azurecr.io/
         username: upbimages
-        password: FkXQyZ8TqrWEYbt4e1ju8kaExRalE17diErPCqnzQ4+ACRAahiDR
+        password: uViuLYImNy0PhEeuTpFwok4TM20aOjLBOVneUv7nfj+ACRAUWdYI
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
